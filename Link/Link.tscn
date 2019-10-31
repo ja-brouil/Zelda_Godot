@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Link/Link.gd" type="Script" id=1]
 [ext_resource path="res://Link/Link_Move_Push.png" type="Texture" id=2]
@@ -143,9 +143,114 @@ tracks/0/keys = {
 "values": [ 12, 13 ]
 }
 
+[sub_resource type="Animation" id=19]
+resource_name = "sworddown"
+length = 1.25
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SwordHitBox/CollisionShape2D:shape:extents")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 2 ), Vector2( 7.82765, 7.6756 ), Vector2( 2, 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SwordHitBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -12.81, 10.9481 ), Vector2( -10.6453, 19.6067 ), Vector2( 5.51738, 22.6372 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Link_Swing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6.71723, -0.0157318 ), Vector2( -6.42861, 5.75667 ), Vector2( -0.223278, 7.34408 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Link_Swing:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 3, 46, 30, 15 ), Rect2( 41, 46, 26, 28 ), Rect2( 74, 47, 15, 31 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "swordleft"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Swing:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 169, 8, 15, 31 ), Rect2( 136, 11, 27, 28 ), Rect2( 102, 24, 30, 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SwordHitBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.5149, -8.44987 ), Vector2( -10.2159, -4.59937 ), Vector2( -13.3151, 11.7418 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SwordHitBox/CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 8 ), Vector2( 7.85474, 7.4679 ), Vector2( 8, 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Link_Swing:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.78219, -7.55868 ), Vector2( -5.69793, -5.68038 ), Vector2( -7.29448, 0.705818 ) ]
+}
+
 [sub_resource type="Animation" id=10]
 resource_name = "swordright"
-length = 1.5
+length = 1.25
 step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Link_Swing:region_rect")
@@ -198,9 +303,56 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=11]
 resource_name = "swordup"
-length = 1.5
-loop = true
+length = 1.25
 step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Swing:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 155, 63, 29, 15 ), Rect2( 125, 50, 26, 28 ), Rect2( 102, 46, 15, 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Link_Swing:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 9.01256, 0.561508 ), Vector2( 7.56946, -5.3552 ), Vector2( 0.931202, -7.66417 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SwordHitBox/CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 2 ), Vector2( 8, 7.89207 ), Vector2( 2, 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SwordHitBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17.5673, 3.51612 ), Vector2( 14.2481, -4.13232 ), Vector2( 6.67186, -8.10084 ) ]
+}
 
 [sub_resource type="Animation" id=12]
 loop = true
@@ -281,7 +433,7 @@ TYPE = "Player"
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
-frame = 6
+frame = 3
 region_rect = Rect2( 105, 2, 14, 16 )
 __meta__ = {
 "_edit_lock_": true
@@ -301,6 +453,8 @@ anims/pushdown = SubResource( 6 )
 anims/pushleft = SubResource( 7 )
 anims/pushright = SubResource( 8 )
 anims/pushup = SubResource( 9 )
+anims/sworddown = SubResource( 19 )
+anims/swordleft = SubResource( 18 )
 anims/swordright = SubResource( 10 )
 anims/swordup = SubResource( 11 )
 anims/walkdown = SubResource( 12 )
@@ -328,6 +482,5 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitBox"]
-visible = false
 position = Vector2( 15.3289, 11.1783 )
 shape = SubResource( 17 )
