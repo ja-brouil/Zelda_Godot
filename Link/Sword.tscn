@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Link/Sword Swing.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 8 )
+
+[node name="Sword" type="Node2D"]
+
+[node name="Sword_Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+
+[node name="Sword_HitBox" type="Area2D" parent="."]
+
+[node name="Hit_Box" type="CollisionShape2D" parent="Sword_HitBox"]
+position = Vector2( -4.53797, 0.0577545 )
+shape = SubResource( 1 )

@@ -1,0 +1,333 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Link/Link.gd" type="Script" id=1]
+[ext_resource path="res://Link/Link_Move_Push.png" type="Texture" id=2]
+[ext_resource path="res://Link/Link Sword.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idledown"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idleleft"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idleright"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idleup"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "pushdown"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 11 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "pushleft"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 9 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "pushright"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 14, 15 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "pushup"
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 12, 13 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "swordright"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Swing:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 14, 8, 15, 31 ), Rect2( 35, 11, 27, 28 ), Rect2( 66, 24, 30, 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Link_Swing:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1.22629, -7.54653 ), Vector2( 4.9996, -6.32022 ), Vector2( 6.98056, 0.330158 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SwordHitBox/CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 8 ), Vector2( 7.67254, 8 ), Vector2( 8, 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SwordHitBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.52792, -8.67851 ), Vector2( 12.3574, -5.3769 ), Vector2( 15.3289, 11.1783 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "swordup"
+length = 1.5
+loop = true
+step = 0.5
+
+[sub_resource type="Animation" id=12]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=13]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.496903 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=14]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 6 ]
+}
+
+[sub_resource type="Animation" id=15]
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Link_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 5, 4 ]
+}
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 7, 8 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 8, 2 )
+
+[node name="Link" type="KinematicBody2D"]
+z_index = 1
+script = ExtResource( 1 )
+TYPE = "Player"
+
+[node name="Link_Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 8
+frame = 6
+region_rect = Rect2( 105, 2, 14, 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Link_Collision_Box" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Link_Anim" type="AnimationPlayer" parent="."]
+playback_speed = 4.0
+anims/idledown = SubResource( 2 )
+anims/idleleft = SubResource( 3 )
+anims/idleright = SubResource( 4 )
+anims/idleup = SubResource( 5 )
+anims/pushdown = SubResource( 6 )
+anims/pushleft = SubResource( 7 )
+anims/pushright = SubResource( 8 )
+anims/pushup = SubResource( 9 )
+anims/swordright = SubResource( 10 )
+anims/swordup = SubResource( 11 )
+anims/walkdown = SubResource( 12 )
+anims/walkleft = SubResource( 13 )
+anims/walkright = SubResource( 14 )
+anims/walkup = SubResource( 15 )
+
+[node name="hit_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+visible = false
+shape = SubResource( 16 )
+
+[node name="Link_Swing" type="Sprite" parent="."]
+visible = false
+position = Vector2( 6.98056, 0.330158 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 66, 24, 30, 15 )
+
+[node name="SwordHitBox" type="Area2D" parent="."]
+visible = false
+position = Vector2( -1.22629, -7.54653 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitBox"]
+visible = false
+position = Vector2( 15.3289, 11.1783 )
+shape = SubResource( 17 )
