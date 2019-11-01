@@ -6,6 +6,7 @@ var action_state = "default"
 
 # Sword Charge Timer
 var sword_timer = 0
+var second_timer = 0
 
 # Physics
 func _physics_process(delta):
@@ -17,7 +18,7 @@ func _physics_process(delta):
 		"sword_out":
 			spin_out(delta)
 		"charging":
-			charge_wait()
+			charge_wait(delta)
 		"spin_attack_ready":
 			spin_attack_ready()
 		"spin_attack_state":
@@ -74,20 +75,25 @@ func spin_out(delta) -> void:
 	elif sword_timer > 1:
 		# Play sounds for sword charging
 		get_node("Sword/SwordSound/SwordCharge").play(0)
-		get_node("Sword/SwordSound/SwordCharge").connect("finished", self, "set_spin_attack_ready")
 		action_state = "charging"
 		sword_timer = 0
 
 # Spin charge
-func charge_wait() -> void:
+func charge_wait(delta) -> void:
+	second_timer += delta
+	
 	controls_loop()
 	movement_loop()
 	damage_loop()
 	# Release too early
 	if !Input.is_action_pressed("b button"):
+		get_node("Sword/SwordSound/SwordCharge").stop()
 		$Link_Sprite.visible = true
 		get_node("Sword").queue_free()
 		action_state = "default"
+	
+	if second_timer >= 0.2:
+		action_state = "spin_attack_ready"
 
 # Spin Attack
 func spin_attack_ready() -> void:
@@ -95,6 +101,7 @@ func spin_attack_ready() -> void:
 	movement_loop()
 	damage_loop()
 	if Input.is_action_just_released("b button"):
+		get_node("Sword/SwordSound/SwordCharge").stop()
 		get_node("Sword/anim").play(str("spin",sprite_dir))
 		get_node("Sword/SwordSound/SwordSpin").play(0)
 		get_node("Sword/anim").connect("animation_finished", self, "spin_attack_done")
@@ -114,9 +121,6 @@ func controls_loop() -> void:
 	move_dir.x = -int(LEFT) + int(RIGHT)
 	move_dir.y = -int(UP) + int(DOWN)
 
-# Set Spin Attack
-func set_spin_attack_ready() -> void:
-	action_state = "spin_attack_ready"
 
 # Use Item
 func use_item(item):
