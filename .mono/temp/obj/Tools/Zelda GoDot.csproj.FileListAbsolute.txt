@@ -1,0 +1,6 @@
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/bin/Tools/Zelda GoDot.dll
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/bin/Tools/Zelda GoDot.pdb
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/obj/Tools/Zelda GoDot.csprojResolveAssemblyReference.cache
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/obj/Tools/Zelda GoDot.csproj.CoreCompileInputs.cache
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/obj/Tools/Zelda GoDot.dll
+/Users/james/Desktop/Programming/Zelda_Godot/.mono/temp/obj/Tools/Zelda GoDot.pdb

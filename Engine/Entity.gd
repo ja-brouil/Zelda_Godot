@@ -1,5 +1,3 @@
-
-
 extends KinematicBody2D
 class_name Entity
 
@@ -14,9 +12,11 @@ var hit_stun = 0
 
 # Knockback direction
 export(Vector2) var knock_dir = Vector2(0,0)
+export(int) var weight = 0
 
 # Health
-export(int) var health = 1
+export(int) var health = 2
+export(int) var max_health = 2
 
 # Type
 export(String) var TYPE = "Enemy"
@@ -34,14 +34,14 @@ func _ready() -> void:
 # Process Entity Movement
 func movement_loop() -> void:
 	# Set Knockback
-	var motion
+	var motion = Vector2(0,0)
 	if hit_stun == 0:
 		motion = move_dir.normalized() * SPEED
 	else:
-		motion = knock_dir.normalized() * SPEED * 1.25 # Bit faster when being knocked back
+		motion = knock_dir.normalized() * SPEED * (1.25 + weight) # Bit faster when being knocked back
 	
 	# Consider all walls
-	move_and_slide(motion, Vector2(0,0)) 
+	move_and_slide(motion, Vector2(0,0))
 
 # Get direction of sprite
 func set_sprite_direction() -> void:
@@ -66,11 +66,18 @@ func damage_loop() -> void:
 	# Reduce time in hitstun
 	if hit_stun > 0:
 		hit_stun -= 1
-	
+	else:
+		# Flash Red damage
+		
+		# Remove enemies if they die
+		if TYPE == "Enemy" && health <= 0:
+			queue_free()
+		
 	# Get every hitbox and process
-	for body in $hit_box.get_overlapping_bodies():
+	for area in $hit_box.get_overlapping_areas():
+		var body = area.get_parent()
 		# Check if not in hitstun, check if type is not player/enemy and check how much damage should be taken
 		if hit_stun == 0 and body.get("damage") != null && body.get("TYPE") != TYPE:
 			health -= body.get("damage")
 			hit_stun = 10
-			knock_dir = transform.origin - body.transform.origin
+			knock_dir = global_transform.origin - body.global_transform.origin

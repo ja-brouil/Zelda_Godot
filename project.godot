@@ -28,6 +28,10 @@ config/icon="res://Link/Link_Move_Push.png"
 
 dir="*res://Engine/Directions.gd"
 
+[debug]
+
+gdscript/warnings/enable=false
+
 [display]
 
 window/size/width=160

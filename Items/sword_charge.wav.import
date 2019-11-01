@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sword_charge.wav-c76f132e062e38bf70898664d9e81254.sample"
+
+[deps]
+
+source_file="res://Items/sword_charge.wav"
+dest_files=[ "res://.import/sword_charge.wav-c76f132e062e38bf70898664d9e81254.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

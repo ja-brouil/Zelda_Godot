@@ -1,0 +1,53 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "swordleft"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sword/Link_Swing:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 169, 8, 15, 31 ), Rect2( 136, 11, 27, 28 ), Rect2( 102, 24, 30, 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sword/SwordHitBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.5149, -8.44987 ), Vector2( -10.2159, -4.59937 ), Vector2( -13.3151, 11.7418 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sword/SwordHitBox/CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 8 ), Vector2( 7.85474, 7.4679 ), Vector2( 8, 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sword/Link_Swing:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.78219, -7.55868 ), Vector2( -5.69793, -5.68038 ), Vector2( -7.29448, 0.705818 ) ]
+}

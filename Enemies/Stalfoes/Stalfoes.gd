@@ -13,6 +13,9 @@ func _ready() -> void:
 	
 	# Start move direction
 	move_dir = dir.rand()
+	
+	# Lighter
+	weight = 0.75
 
 func _physics_process(delta):
 	# Move
